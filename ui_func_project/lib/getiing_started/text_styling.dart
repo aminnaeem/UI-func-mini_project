@@ -6,6 +6,7 @@ class TextStyling {
     color: AppColors.primaryTextColor,
     fontSize: 30,
     fontWeight: FontWeight.w700,
+    letterSpacing: 1
   );
   static TextStyle preStyling = TextStyle(
     color: AppColors.secondaryTextColor,

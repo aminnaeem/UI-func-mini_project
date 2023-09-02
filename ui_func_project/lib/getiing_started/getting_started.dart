@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:ui_func_project/getiing_started/text_styling.dart';
+import 'package:ui_func_project/getiing_started/gs_slide_content.dart';
+import 'package:ui_func_project/getiing_started/slide_model.dart';
+import 'package:ui_func_project/ui/buttons.dart';
 import 'package:ui_func_project/ui/constraints/icons.dart';
+import 'package:ui_func_project/ui/custom_button_stylings.dart';
 
 class GettingStarted extends StatelessWidget {
-  const GettingStarted({super.key});
+  final PageController _pageController = PageController(
+    initialPage: 0
+  );
+  GettingStarted({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,35 +17,23 @@ class GettingStarted extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 180,
-              width: MediaQuery.of(context).size.width*0.75,
-              margin: EdgeInsets.only(top: 33, left: 42),
-              child: RichText(
-                text: TextSpan(
-                  style: TextStyling.mainStyling,
-                  children: [
-                    const TextSpan(
-                      text: "Your holiday shopping   delivered to Screen one"
-                    ),
-                    WidgetSpan(child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: Image.asset(AppIcons.gsIcon,
-                      height: 40,
-                      width: 40,),
-                      )
-                    )
-                  ]
-                )
-              ),
+            Expanded(
+              child: PageView.builder(
+                scrollDirection: Axis.horizontal,
+                controller: _pageController,
+                itemCount: slideList.length,
+                itemBuilder: (context, index) => SlideContent(index: index),
+              )
             ),
             Container(
-              height: 89,
-              margin: const EdgeInsets.only(left: 42),
-              width: MediaQuery.of(context).size.width*0.75,
-              child: Text(
-                "There's something for everyone to enjoy with Sweet Shop Favourites Screen 1",
-                style: TextStyling.preStyling,
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.05),
+              child: ElevatedButton(
+                style: CustomButtonsStyling.gsButton,
+                onPressed: (){},
+                child: GetStartedButton(
+                  text: 'Get Started', svgPic: AppIcons.gsArrowIcon,
+                )
               ),
             )
           ],
