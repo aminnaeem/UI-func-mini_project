@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_func_project/getiing_started/gs_slide_content.dart';
 import 'package:ui_func_project/getiing_started/slide_model.dart';
+import 'package:ui_func_project/home/home_page.dart';
 import 'package:ui_func_project/ui/buttons.dart';
 import 'package:ui_func_project/ui/constraints/icons.dart';
 import 'package:ui_func_project/ui/custom_button_stylings.dart';
@@ -77,16 +78,20 @@ class _GettingStartedState extends State<GettingStarted> {
               )
             ),
             Container(
-          alignment: AlignmentDirectional.bottomCenter,
-          margin: EdgeInsets.all(40),
-          child: Image.asset(slideList[0].slideImage)
-        ),
+              alignment: AlignmentDirectional.bottomCenter,
+              padding: EdgeInsets.all(20),
+              child: Image.asset(slideList[0].slideImage)
+            ),
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.05),
               child: ElevatedButton(
                 style: CustomButtonsStyling.gsButton,
-                onPressed: (){},
+                onPressed: (){
+                  setState(() {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHomeScreen()));
+                  });
+                },
                 child: GetStartedButton(
                   text: 'Get Started', svgPic: AppIcons.gsArrowIcon,
                 )
