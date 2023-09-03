@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_func_project/ui/constraints/colors.dart';
+import 'package:ui_func_project/ui/widgets/custom_search_bar.dart';
 
 class MyHomeScreen extends StatefulWidget {
   const MyHomeScreen({super.key});
@@ -46,11 +47,44 @@ class _MyHomeScreenState extends State<MyHomeScreen> with TickerProviderStateMix
               ),
             ),
             Expanded(
-              flex: 1,
-              child: Container(
-                width: MediaQuery.of(context).size.width*0.80,
-                color: AppColors.primaryColor,
-                
+              child: Column(
+                children: [
+                  Container(
+                    height: 56,
+                    width: MediaQuery.of(context).size.width*0.90,
+                    child: CustomSearchBar(hintText: "Search Product or Store")
+                  ),
+                  Container(
+                    child: const Row(
+                      children: [
+                        Column(
+                          children: [
+                            Text("DELIVERED TO"),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("Green Way 3000, Sylhet"),
+                                Icon(Icons.arrow_drop_down_rounded)
+                              ],
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text("WITHIN"),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text("1 Hour"),
+                                Icon(Icons.arrow_drop_down_rounded)
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
             Expanded(
