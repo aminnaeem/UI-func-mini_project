@@ -7,4 +7,5 @@ class AppColors {
   static var primaryTextColor = Color(0xFFF8F9FB);
   static var secondaryTextColor = Color(0xFFB2BBCE);
   static var contentTextColor = Color(0xFF1B262E);
+  static var cardColor = Color(0xFFE0E2EE);
 }
